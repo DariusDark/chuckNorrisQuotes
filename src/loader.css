@@ -1,0 +1,53 @@
+.loader-backdrop {
+  position: fixed;
+  inset: 0;
+  background: #00000030;
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 70px;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #000;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  animation: blink 1s infinite cubic-bezier(0, 0.2, 0.8, 1);
+  -webkit-animation: blink 1s infinite cubic-bezier(0, 0.2, 0.8, 1);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.loader:after {
+  animation-delay: -0.5s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+    width: 0;
+    aspect-ratio: 1;
+  }
+  100% {
+    width: 120%;
+    aspect-ratio: 1;
+    opacity: 0;
+  }
+}
